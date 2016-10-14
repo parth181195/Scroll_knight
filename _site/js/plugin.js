@@ -1,14 +1,18 @@
 var p = 0,
 obj_array=[],
 rate_array=[],
-i_array=[]
-var scrollknight
+i_array=[],
+peralax_call = 0,
+scrollknight;
 scrollknight = {
-class : function (menu, offset, active_class) {
+peralax: function() {
+    peralax_call = 1
+},
+addclass : function (menu, offset, active_class) {
     var l_id,
         menu_height = menu.height(),
         menu_items = menu.find("a");
-    scroll_div = menu_items.map(function() {
+        scroll_div = menu_items.map(function() {
         var item = $($(this).attr("href"));
         if (item.length) {
             return item;
@@ -20,45 +24,62 @@ class : function (menu, offset, active_class) {
         var scroll = $(this).children('a').attr('href');
         var scroll_dist = ($(scroll).offset().top) - offset
             //  $(window).scroll(scroll_dist)
-        TweenLite.to(window, 0.3, {
+        TweenMax.to(window, 0.3, {
             scrollTo: scroll_dist
         });
     });
+    peralaxknight();
     $(window).scroll(function() {
-        var dist = $(this).scrollTop() + menu_height + offset;
-        var cur = scroll_div.map(function() {
-            if ($(this).offset().top < dist)
-                return this;
-        });
-        cur = cur[cur.length - 1];
-        var id = cur && cur.length ? cur[0].id : "";
-        if (l_id !== id) {
-            l_id = id;
-            menu_items
-                .parent().removeClass(active_class)
-                .end().filter("[href='#" + id + "']").parent().addClass(active_class);
-        }
+      win_scroll(offset,active_class,menu_height,menu_items,scroll_div,l_id)
+    if (peralax_call =! 0) {
+      peralax_divs.map(function(elem) {
+      var new_rate = peralax_rate.map(function(elem) {
+        var data = $(window).scrollTop()/this;
+        return data;
+        })
+        TweenMax.set(this, {transform:"translate(0,"+new_rate[elem]+'px)'});
+      })
+    }
     });
 },
-
-// peralax : function (object, rate) {
-//   i_array[p]=p
-//   obj_array[p]=object
-//   rate_array[p]=rate
-//   p=p+1
-// peralaxknight(obj_array,rate_array)
-// }
 }
-// function peralaxknight(objects, rates){
-//   var act_rates=[]
-//   $(window).scroll(function(event) {
-//     act_rates = rates.map(function(element) {
-//       var temp = ($(window).scrollTop()/element)
-//       return temp;
-//     })
-//   $.each(i_array,function(){
-//     $(objects[this]).css('transform', 'translate('+act_rates[this]+'px,0)');
-//     // console.log(act_rates[this]);
-//   })
-//   });
+function peralaxknight() {
+    peralax_divs = $(document).find(".peralax");
+    peralax_rate = peralax_divs.map(function(elem) {
+        var data = $(this).attr('data-peralax-rate');
+        return data;
+    })
+}
+function win_scroll(offset,active_class,menu_height,menu_items,scroll_div,l_id){
+  var dist = $(this).scrollTop() + menu_height + offset;
+  var cur = scroll_div.map(function() {
+      if ($(this).offset().top < dist)
+          return this;
+  });
+  cur = cur[cur.length - 1];
+  var id = cur && cur.length ? cur[0].id : "";
+  if (l_id !== id) {
+      l_id = id;
+      menu_items
+          .parent().removeClass(active_class)
+          .end().filter("[href='#" + id + "']").parent().addClass(active_class);
+  }
+}
+//     peralax: function() {
+//         peralax_call = 1
+//     },
+//             // if (peralax_call =! 0) {
+//             //   peralaxknight()
+//             //   peralax_divs.map(function(elem) {
+//             //     var new_rate = peralax_rate.map(function(elem) {
+//             //       var data = scroll_dist/this;
+//             //       return data;
+//             //     })
+//             //     // $(this).css('top', new_rate[elem]+'px');
+//             //   })
+//             // }
+//         });
+//     }
+//
 // }
+//
