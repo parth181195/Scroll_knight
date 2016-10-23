@@ -18,11 +18,10 @@ for (var i = 0; i < max_icon; i++) {
     bg.append("<div class='icon'style='left: calc(" + rand_range(25,75,100) + "% - 60px); top: " + rand_gen(h_ratio) + "%;background-image: url(../img/svg/" + svg_list[rand_gen(11)] + ");'></div>");
 }
 $(document).ready(function() {
-    svg_display();
     bg_icon_move();
-    animations_page();
-    scrollknight.scroll($(".tip ul li"), 350, "active")
+    scrollknight.scroll($(".tip ul li"), 300, "active")
     scrollknight.peralax()
+    animations_page();
 });
 function bg_icon_move() {
   $(window).mousemove(function(event) {
@@ -32,10 +31,10 @@ function bg_icon_move() {
         var y = event.pageY;
         x = (((x / width) - 0.5) * 90)
         y = (((y / height) - 0.5) * 90)
-        // TweenMax.set(".dir1", {transform:"translate(" + x + "px," + y + "px)"})
-        // TweenMax.set(".dir2", {transform:"translate(" + (x * -1) + "px," + (y * -1) + "px)"})
-        $(".dir1").css('transform', "translate(" + x + "px," + y + "px)");
-        $(".dir2").css('transform', "translate(" + (x * -1) + "px," + (y * -1) + "px)");
+        TweenMax.to(".dir1", 0.05,{transform:"translate(" + x + "px," + y + "px)"})
+        TweenMax.to(".dir2", 0.05,{transform:"translate(" + (x * -1) + "px," + (y * -1) + "px)"})
+        // $(".dir1").css('transform', "translate(" + x + "px," + y + "px)");
+        // $(".dir2").css('transform', "translate(" + (x * -1) + "px," + (y * -1) + "px)");
       }
     });
 }
@@ -52,20 +51,35 @@ function rand_range(val1,val2,val3) {
     }
 }
 function svg_display() {
+  TweenMax.set(".icon", {opacity:0});
     bg.children('.icon:odd').addClass('dir1')
     bg.children('.icon:even').addClass('dir2')
     bg.children('.icon').css('display', 'block');
 }
 
 function animations_page() {
+    svg_display();
     var tl = new TimelineMax
-    tl.from(".wrapper h1.head", 0.5, {
-            top: "-500px",
+    tl.from("h1.head", 0.5, {
+            transform: "translate(0,-500px)"
         })
-        .from(".wrapper h1.head", 0.5, {
+        .from("h1.head", 0.5, {
             opacity: 0
+        }, "=-0.3")
+        .from("#one .pain", 0.5, {
+            transform: " translate(0,600px)"
+        }, "=-0.3")
+        .from("#one .pain", 0.5, {
+            opacity: 0
+        }, "=-0.1")
+        .from("#one .forget", 0.5, {
+            opacity: 0,
+            transform: " translate(600px,0)"
         }, "=-0.3")
         .staggerTo(".tip ul li", 0.5, {
             transform: " translate(0,0) rotate(45deg)"
-        }, 0.02, "=-0.6");
+        }, 0.02, "=-0.6")
+        .to(".icon", 1, {
+            opacity: 1
+        });
 }

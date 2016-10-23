@@ -393,7 +393,7 @@ h1.head {
   will-change: transform;
   text-align: center;
   display: inline-block;
-  padding-top: 100px;
+  padding-top: 50px;
   margin: auto;
   width: 100%;
   opacity: 1;
@@ -480,9 +480,22 @@ h1.head {
   .tip {
     left: 30px; } }
 
+.wrapper #one {
+  height: 65vh; }
+  .wrapper #one h2 {
+    will-change: transform;
+    margin: 0;
+    font-family: Bungee Shade;
+    font-size: 4em;
+    text-align: center;
+    color: #96dd23; }
+  .wrapper #one h2.pain {
+    color: #fc2c2c; }
+
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow-x: hidden; }
   body .wrapper .header {
     overflow: hidden;
     position: relative;

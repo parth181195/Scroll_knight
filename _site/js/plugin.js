@@ -33,7 +33,7 @@ scroll : function (menu, offset, active_class) {
       win_scroll(offset,active_class,menu_height,menu_items,scroll_div,l_id)
     if (peralax_call =! 0) {
       peralax_divs.map(function(elem) {
-        TweenMax.set(this, {transform:"translate(0,"+$(window).scrollTop()/peralax_rate[elem]+'px)'});
+          TweenMax.to(this, 0.1,{ease: Power4.easeInOut,transform:"translate"+peralax_dir[elem]+"("+$(window).scrollTop()/peralax_rate[elem]+'px)'});
       })
     }
     });
@@ -50,12 +50,12 @@ function peralaxknight() {
         return data;
     })
     peralax_dir = peralax_divs.map(function(elem) {
-        var data = $(this).attr('data-peralax-dir').toLowerCase();
+        var data = $(this).attr('data-peralax-dir').toUpperCase();
         if (data == undefined)
         {
           throw "----> No direction found on peralax_div number----> "+ (elem+1);
         }
-        else if (data != "x" && data != "y") {
+        else if (data != "X" && data != "Y") {
           throw "----> No velid direction found on peralax_div number----> "+ (elem+1);
         }
         return data;
@@ -76,21 +76,3 @@ function win_scroll(offset,active_class,menu_height,menu_items,scroll_div,l_id){
           .end().filter("[href='#" + id + "']").parent().addClass(active_class);
   }
 }
-//     peralax: function() {
-//         peralax_call = 1
-//     },
-//             // if (peralax_call =! 0) {
-//             //   peralaxknight()
-//             //   peralax_divs.map(function(elem) {
-//             //     var new_rate = peralax_rate.map(function(elem) {
-//             //       var data = scroll_dist/this;
-//             //       return data;
-//             //     })
-//             //     // $(this).css('top', new_rate[elem]+'px');
-//             //   })
-//             // }
-//         });
-//     }
-//
-// }
-//
