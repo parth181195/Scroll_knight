@@ -387,23 +387,95 @@ textarea {
     background-size: 15px;
     height: 15px; }
 
+h1.head {
+  text-align: center;
+  display: inline-block;
+  padding-top: 100px;
+  margin: auto;
+  width: 100%;
+  opacity: 1;
+  font-weight: 200;
+  color: #1795f1;
+  font-size: 5em;
+  font-family: Monoton; }
+
 .wrapper {
-  top: 300px;
+  top: 100px;
   position: relative;
-  width: 50%;
-  margin: 0 auto 200px auto;
+  width: 100%;
+  margin: auto;
   overflow: visible; }
-  .wrapper h1 {
-    top: -250px;
-    position: absolute;
-    opacity: 1;
-    width: 100%;
-    font-weight: 200;
-    text-align: center;
-    color: #1795f1;
-    margin: auto;
-    font-size: 6em;
-    font-family: Monoton; }
+
+@media (min-width: 600px) {
+  .wrapper {
+    width: 80%; } }
+
+@media (min-width: 900px) {
+  .wrapper {
+    width: 70%;
+    float: none;
+    margin: auto; } }
+
+@media (min-width: 1200px) {
+  h1.head {
+    font-size: 6em; }
+  .wrapper {
+    width: 60%; } }
+
+@media (min-width: 1400px) {
+  .wrapper {
+    width: 50%; } }
+
+.tip {
+  position: fixed;
+  top: 40%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  left: 10px; }
+  .tip ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .tip ul li {
+      cursor: pointer;
+      margin: 25px 0 25px 0;
+      padding: 10px;
+      -webkit-transform: translate(-200%, 0) rotate(45deg);
+          -ms-transform: translate(-200%, 0) rotate(45deg);
+              transform: translate(-200%, 0) rotate(45deg);
+      line-height: 10px;
+      background: #fff;
+      border: 4px solid #000;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s; }
+      .tip ul li a {
+        display: block;
+        -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+        text-decoration: none;
+        font-family: Roboto;
+        font-weight: 700;
+        font-size: 1.2em;
+        color: #000; }
+      .tip ul li a:visited {
+        color: #000; }
+      .tip ul li:hover {
+        background-color: #606060;
+        border: 4px solid #606060; }
+        .tip ul li:hover a {
+          color: #fff; }
+    .tip ul li.active {
+      background: #000; }
+      .tip ul li.active a {
+        color: #fff; }
+      .tip ul li.active:hover {
+        border: 4px solid #000; }
+
+@meadia (min-width:900px) {
+  .tip {
+    left: 30px; } }
 
 body {
   margin: 0;
@@ -444,49 +516,3 @@ body {
       height: 80%;
       top: 45%;
       left: 50%; }
-  body .tip {
-    position: fixed;
-    top: 40%;
-    -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
-            transform: translate(0, -50%);
-    left: 30px; }
-    body .tip ul {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-      body .tip ul li {
-        cursor: pointer;
-        margin: 25px 0 25px 0;
-        padding: 10px;
-        -webkit-transform: translate(-200%, 0) rotate(45deg);
-            -ms-transform: translate(-200%, 0) rotate(45deg);
-                transform: translate(-200%, 0) rotate(45deg);
-        line-height: 10px;
-        background: #fff;
-        border: 4px solid #000;
-        -webkit-transition: all 0.2s;
-        transition: all 0.2s; }
-        body .tip ul li a {
-          display: block;
-          -webkit-transform: rotate(-45deg);
-              -ms-transform: rotate(-45deg);
-                  transform: rotate(-45deg);
-          text-decoration: none;
-          font-family: Roboto;
-          font-weight: 700;
-          font-size: 1.2em;
-          color: #000; }
-        body .tip ul li a:visited {
-          color: #000; }
-        body .tip ul li:hover {
-          background-color: #606060;
-          border: 4px solid #606060; }
-          body .tip ul li:hover a {
-            color: #fff; }
-      body .tip ul li.active {
-        background: #000; }
-        body .tip ul li.active a {
-          color: #fff; }
-        body .tip ul li.active:hover {
-          border: 4px solid #000; }

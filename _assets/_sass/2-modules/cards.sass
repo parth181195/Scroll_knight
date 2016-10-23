@@ -1,17 +1,33 @@
+h1.head
+  text-align: center
+  display: inline-block
+  padding-top: 100px
+  margin: auto
+  width: 100%
+  opacity: 1
+  font-weight: 200
+  color: #1795f1
+  font-size: 5em
+  font-family: Monoton
 .wrapper
-  top: 300px
+  top: 100px
   position: relative
-  width: 50%
-  margin: 0 auto 200px auto
+  width: 100%
+  margin: auto
   overflow: visible
-  h1
-    top: -250px
-    position: absolute
-    opacity: 1
-    width: 100%
-    font-weight: 200
-    text-align: center
-    color: #1795f1
+@media(min-width:600px)
+  .wrapper
+    width: 80%
+@media(min-width:900px)
+  .wrapper
+    width: 70%
+    float: none
     margin: auto
+@media(min-width:1200px)
+  h1.head
     font-size: 6em
-    font-family: Monoton
+  .wrapper
+    width: 60%
+@media(min-width:1400px)
+  .wrapper
+    width: 50%

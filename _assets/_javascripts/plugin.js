@@ -34,7 +34,7 @@ addclass : function (menu, offset, active_class) {
     if (peralax_call =! 0) {
       peralax_divs.map(function(elem) {
       var new_rate = peralax_rate.map(function(elem) {
-        console.log($(window).scrollTop()/this);
+        // console.log(this);
         var data = $(window).scrollTop()/this;
         return data;
         })
@@ -48,6 +48,21 @@ function peralaxknight() {
     peralax_divs = $(document).find(".peralax");
     peralax_rate = peralax_divs.map(function(elem) {
         var data = $(this).attr('data-peralax-rate');
+        if (data == undefined)
+        {
+          data = 1.5
+        }
+        return data;
+    })
+    peralax_dir = peralax_divs.map(function(elem) {
+        var data = $(this).attr('data-peralax-dir').toLowerCase();
+        if (data == undefined)
+        {
+          throw "----> No direction found on peralax_div number----> "+ (elem+1);
+        }
+        else if (data != "x" && data != "y") {
+          throw "----> No velid direction found on peralax_div number----> "+ (elem+1);
+        }
         return data;
     })
 }
