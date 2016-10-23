@@ -375,8 +375,10 @@ textarea {
   padding: 0;
   overflow: hidden;
   width: 100%;
+  will-change: transform;
   height: 100%; }
   .bg-icon .icon {
+    will-change: transform;
     display: none;
     z-index: -1;
     margin: 0;
@@ -388,6 +390,7 @@ textarea {
     height: 15px; }
 
 h1.head {
+  will-change: transform;
   text-align: center;
   display: inline-block;
   padding-top: 100px;

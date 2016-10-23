@@ -8,7 +8,7 @@ scrollknight = {
 peralax: function() {
     peralax_call = 1
 },
-addclass : function (menu, offset, active_class) {
+scroll : function (menu, offset, active_class) {
     var l_id,
         menu_height = menu.height(),
         menu_items = menu.find("a");
@@ -33,12 +33,7 @@ addclass : function (menu, offset, active_class) {
       win_scroll(offset,active_class,menu_height,menu_items,scroll_div,l_id)
     if (peralax_call =! 0) {
       peralax_divs.map(function(elem) {
-      var new_rate = peralax_rate.map(function(elem) {
-        // console.log(this);
-        var data = $(window).scrollTop()/this;
-        return data;
-        })
-        TweenMax.set(this, {transform:"translate(0,"+new_rate[elem]+'px)'});
+        TweenMax.set(this, {transform:"translate(0,"+$(window).scrollTop()/peralax_rate[elem]+'px)'});
       })
     }
     });

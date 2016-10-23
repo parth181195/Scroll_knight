@@ -5,7 +5,7 @@ var bg = $('.bg-icon'),
     w_height = $(window).height(),
     w_width = $(window).width(),
     svg_list = ["icon-01.svg", "icon-02.svg", "icon-03.svg", "icon-04.svg", "icon-05.svg", "icon-06.svg", "icon-07.svg", "icon-08.svg", "icon-09.svg", "icon-10.svg", "icon-11.svg", "icon-12.svg"],
-    max_icon = 40,
+    max_icon = 30,
     last_Pos = ($(".last").offset().top)-600,
     h_ratio = (height / w_height) * 100;
     w_ratio = (width / w_width) * 100;
@@ -21,16 +21,19 @@ $(document).ready(function() {
     svg_display();
     bg_icon_move();
     animations_page();
-    scrollknight.addclass($(".tip ul li"), 350, "active")
+    scrollknight.scroll($(".tip ul li"), 350, "active")
     scrollknight.peralax()
 });
 function bg_icon_move() {
   $(window).mousemove(function(event) {
   if (width > 800){
+      // this.style.willChange = 'transform, opacity';
         var x = event.pageX;
         var y = event.pageY;
-        x = (((x / width) - 0.5) * 70)
-        y = (((y / height) - 0.5) * 70)
+        x = (((x / width) - 0.5) * 90)
+        y = (((y / height) - 0.5) * 90)
+        // TweenMax.set(".dir1", {transform:"translate(" + x + "px," + y + "px)"})
+        // TweenMax.set(".dir2", {transform:"translate(" + (x * -1) + "px," + (y * -1) + "px)"})
         $(".dir1").css('transform', "translate(" + x + "px," + y + "px)");
         $(".dir2").css('transform', "translate(" + (x * -1) + "px," + (y * -1) + "px)");
       }
