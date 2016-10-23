@@ -5,8 +5,10 @@ width = $(document).width(),
     w_height = $(window).height(),
     svg_list = ["icon-01.svg", "icon-02.svg", "icon-03.svg", "icon-04.svg", "icon-05.svg", "icon-06.svg", "icon-07.svg", "icon-08.svg", "icon-09.svg", "icon-10.svg", "icon-11.svg", "icon-12.svg"],
     max_icon = Math.floor(Math.pow(height, 0.62)),
+    last_Pos = ($(".last").offset().top)-600,
     h_ratio = (height / w_height) * 100;
-bg.height(h_ratio + "%");
+    console.log(last_Pos);
+bg.height(last_Pos + "px");
 for (var i = 0; i < max_icon; i++) {
     bg.append("<div class='icon'style='left: calc(" + rand_gen(100) + "% - 60px); top: " + rand_gen(h_ratio) + "%;background-image: url(../img/svg/" + svg_list[rand_gen(11)] + ");'></div>");
 }
@@ -17,7 +19,6 @@ $(document).ready(function() {
     scrollknight.addclass($(".tip ul li"), 300, "active")
     scrollknight.peralax()
 });
-
 function bg_icon_move() {
     $(window).mousemove(function(event) {
         var x = event.pageX;

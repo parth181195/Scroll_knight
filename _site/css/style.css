@@ -387,61 +387,63 @@ textarea {
     background-size: 15px;
     height: 15px; }
 
+.wrapper {
+  top: 300px;
+  position: relative;
+  width: 50%;
+  margin: 0 auto 200px auto;
+  overflow: visible; }
+  .wrapper h1 {
+    top: -250px;
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    font-weight: 200;
+    text-align: center;
+    color: #1795f1;
+    margin: auto;
+    font-size: 6em;
+    font-family: Monoton; }
+
 body {
   margin: 0;
   padding: 0; }
-  body .wrapper {
-    top: 300px;
+  body .wrapper .header {
+    overflow: hidden;
     position: relative;
-    width: 50%;
-    margin: 0 auto 200px auto;
-    overflow: visible; }
-    body .wrapper h1 {
-      top: -250px;
-      position: absolute;
-      opacity: 1;
-      font-weight: 200;
-      text-align: center;
+    background-color: #fff;
+    width: 100%;
+    margin: 0 0 200px 0;
+    height: 500px;
+    text-align: center;
+    -webkit-box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2); }
+    body .wrapper .header h1 {
       color: #1795f1;
-      margin: 50px;
-      font-size: 6em;
-      font-family: Monoton; }
-    body .wrapper .header {
-      overflow: hidden;
-      position: relative;
-      background-color: #fff;
-      width: 100%;
-      margin: 0 0 200px 0;
-      height: 500px;
-      text-align: center;
-      -webkit-box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
-              box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2); }
-      body .wrapper .header h1 {
-        color: #1795f1;
-        position: absolute;
-        margin: 0;
-        font-size: 5em;
-        top: 70%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        font-family: Permanent Marker; }
-      body .wrapper .header .img {
-        position: absolute;
-        width: 150%;
-        height: 80%;
-        top: 0;
-        left: 50%;
-        margin-left: -75%;
-        margin-top: -25%;
-        opacity: 0.1; }
-      body .wrapper .header .img-logo {
-        position: absolute;
-        width: 25%;
-        height: 80%;
-        top: 45%;
-        left: 50%; }
+      position: absolute;
+      margin: 0;
+      font-size: 5em;
+      top: 70%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      font-family: Permanent Marker; }
+    body .wrapper .header .img {
+      position: absolute;
+      width: 150%;
+      height: 80%;
+      top: 0;
+      left: 50%;
+      margin-left: -75%;
+      margin-top: -25%;
+      opacity: 0.1; }
+    body .wrapper .header .img-logo {
+      position: absolute;
+      width: 25%;
+      height: 80%;
+      top: 45%;
+      left: 50%; }
   body .tip {
     position: fixed;
     top: 40%;

@@ -34,6 +34,7 @@ addclass : function (menu, offset, active_class) {
     if (peralax_call =! 0) {
       peralax_divs.map(function(elem) {
       var new_rate = peralax_rate.map(function(elem) {
+        console.log($(window).scrollTop()/this);
         var data = $(window).scrollTop()/this;
         return data;
         })
