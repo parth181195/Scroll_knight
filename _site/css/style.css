@@ -481,7 +481,8 @@ h1.head {
     left: 30px; } }
 
 .wrapper #one {
-  height: 65vh; }
+  height: 65vh;
+  margin-bottom: 50px; }
   .wrapper #one h2 {
     will-change: transform;
     margin: 0;
